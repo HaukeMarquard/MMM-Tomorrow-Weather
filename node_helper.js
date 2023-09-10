@@ -6,7 +6,7 @@ module.exports = NodeHelper.create({
     start: function() {
         console.log('Starting node helperrrr: ' + this.name)
         console.log('Hihihi')
-        Log.Log('Starting node helperrrriiirrrr: ' + this.name)
+        Log.log('Starting node helperrrriiirrrr: ' + this.name)
     },
     getWeather: function(payload) {
         var that = this;
