@@ -1,5 +1,7 @@
 const NodeHelper = require('node_helper')
 var request = require('request')
+const Log = require('logger')
+
 module.exports = NodeHelper.create({
     start: function() {
         console.log('Starting node helper: ' + this.name)
@@ -7,7 +9,7 @@ module.exports = NodeHelper.create({
     getWeather: function(payload) {
         var that = this;
         this.url = `https://api.tomorrow.io/v4/weather/forecast?location=${payload.lat},${payload.lon}&apikey=${payload.api_key}`
-
+        Log.info(this.url)
         request({
             url: this.url,
             method: 'GET',
@@ -16,6 +18,9 @@ module.exports = NodeHelper.create({
             }
         }, (error, response, body) => {
             var result = null;
+            Log.log(result)
+            Log.log(body)
+            Log.error(error)
             if(!error && response.statusCode == 200) {
                 result = JSON.parse(body);
             } else {

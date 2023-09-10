@@ -1,6 +1,6 @@
 Module.register("MMM-Tomorrow-Weather", {
     defaults: {
-        updateInterval: 10 * 60 * 1000, // every 10 minutes
+        updateInterval: 1 * 60 * 1000, // every 10 minutes
         text: "Tomorrow's Weather",
         lat: '',
         lon: '',
@@ -15,6 +15,9 @@ Module.register("MMM-Tomorrow-Weather", {
         return ["MMM-Tomorrow-Weather.css"];
     },
     getWeather: function() {
+        Log.log("Getting Weather")
+        Log.log(this.lat)
+        Log.log(this.lon)
         this.sendSocketNotification("GET_WEATHER");
     },
     processWeather: function(data) {
