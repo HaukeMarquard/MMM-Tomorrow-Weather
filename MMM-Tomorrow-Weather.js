@@ -39,6 +39,7 @@ Module.register("MMM-Tomorrow-Weather", {
             var wrapper = document.createElement("div")
             for(let i = 0; i < 4; i++) {
                 const time = new Date(this.weather.timelines.hourly[3*i].time).toLocaleTimeString()
+                Log.info(time)
                 wrapper.appendChild(document.createElement("p").innerText = time)
                 wrapper.appendChild(document.createElement("p").innerText = `Temp: ${Math.round(this.weather.timelines.hourly[3*i].temperature)}`)
                 wrapper.appendChild(document.createElement("p").innerText = `Gefühlte Temp: ${Math.round(this.weather.timelines.hourly[3*i].temperatureApparent)}`)

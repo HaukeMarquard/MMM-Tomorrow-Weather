@@ -14,7 +14,7 @@ module.exports = NodeHelper.create({
         Log.info(this.url)
         axios.get(this.url)
             .then(response => {
-                console.log(response)
+                console.log(response.data)
                 that.sendSocketNotification('WEATHER_RESULT', response.data)
             })
     },
