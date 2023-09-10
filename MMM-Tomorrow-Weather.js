@@ -28,7 +28,7 @@ Module.register("MMM-Tomorrow-Weather", {
     processWeather: function(data) {
         this.weather = data;
         //Datenverarbeitung
-        this.updateDom();
+        this.updateDom()
     },
     getDom: function() {
         if(this.weather == null) {
@@ -44,7 +44,6 @@ Module.register("MMM-Tomorrow-Weather", {
     socketNotificationReceived: function(notification, payload) {
         if (notification === "WEATHER_RESULT") {
             this.processWeather(payload);
-            this.updateDom();
         }
     },
     sheduleUpdate: function() {

@@ -13,8 +13,7 @@ module.exports = NodeHelper.create({
         this.url = `https://api.tomorrow.io/v4/weather/forecast?location=${payload.lat},${payload.lon}&apikey=${payload.api_key}`
         Log.info(this.url)
         axios.get(this.url)
-            .then(response => console.log(response.data))
-            .then(taht.sendSocketNotification('GOT-WEATHER', response.data))
+            .then(response => that.sendSocketNotification('WEATHER_RESULT', response.data))
     },
     socketNotificationReceived: function(notification, payload) {
         if(notification == 'GET_WEATHER') {
