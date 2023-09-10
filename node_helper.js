@@ -4,7 +4,9 @@ const Log = require('logger')
 
 module.exports = NodeHelper.create({
     start: function() {
-        console.log('Starting node helper: ' + this.name)
+        console.log('Starting node helperrrr: ' + this.name)
+        console.log('Hihihi')
+        Log.Log('Starting node helperrrriiirrrr: ' + this.name)
     },
     getWeather: function(payload) {
         var that = this;
@@ -15,7 +17,7 @@ module.exports = NodeHelper.create({
             .then(taht.sendSocketNotification('GOT-WEATHER', response.data))
     },
     socketNotificationReceived: function(notification, payload) {
-        if(notification === 'GET-WEATHER') {
+        if(notification == 'GET_WEATHER') {
             this.getWeather(payload)
         }
     }

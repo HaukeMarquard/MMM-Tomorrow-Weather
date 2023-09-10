@@ -9,6 +9,7 @@ Module.register("MMM-Tomorrow-Weather", {
     start: function() {
         Log.info('Starting Module: ' + this.name);
         this.weather = null;
+        this.getWeather();
         this.sheduleUpdate();
     },
     getStyles: function() {
@@ -18,7 +19,11 @@ Module.register("MMM-Tomorrow-Weather", {
         Log.log("Getting Weather")
         Log.log(this.lat)
         Log.log(this.lon)
-        this.sendSocketNotification("GET_WEATHER");
+        this.sendSocketNotification("GET_WEATHER", {
+            lat: this.config.lat,
+            lon: this.config.lon,
+            api_key: this.config.api_key,
+        });
     },
     processWeather: function(data) {
         this.weather = data;
