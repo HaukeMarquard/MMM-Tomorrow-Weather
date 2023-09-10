@@ -51,6 +51,8 @@ Module.register("MMM-Tomorrow-Weather", {
     },
     socketNotificationReceived: function(notification, payload) {
         if (notification === "WEATHER_RESULT") {
+            Log.info("Hier kam das Wetter an")
+            Log.info(payload)
             this.processWeather(payload);
         }
     },
