@@ -1,6 +1,6 @@
 Module.register("MMM-Tomorrow-Weather", {
     defaults: {
-        updateInterval: 1 * 60 * 1000, // every 10 minutes
+        updateInterval: 10 * 60 * 1000, // every 10 minutes
         text: "Tomorrow's Weather",
         lat: '',
         lon: '',
@@ -9,7 +9,6 @@ Module.register("MMM-Tomorrow-Weather", {
     start: function() {
         Log.info('Starting Module: ' + this.name);
         this.weather = null;
-        this.getWeather();
         this.sheduleUpdate();
     },
     getStyles: function() {
