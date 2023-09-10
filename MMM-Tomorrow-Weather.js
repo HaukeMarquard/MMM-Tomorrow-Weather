@@ -37,24 +37,14 @@ Module.register("MMM-Tomorrow-Weather", {
             return wrapper;
         } else {
             var wrapper = document.createElement("div")
-            for(let i = 0; i < 4; i++) {
-                const time = new Date(this.weather.timelines.hourly[3*i].time).toLocaleTimeString()
-                Log.info(time)
-                wrapper.appendChild(document.createElement("p").innerText = time)
-                wrapper.appendChild(document.createElement("p").innerText = `Temp: ${Math.round(this.weather.timelines.hourly[3*i].temperature)}`)
-                wrapper.appendChild(document.createElement("p").innerText = `Gefühlte Temp: ${Math.round(this.weather.timelines.hourly[3*i].temperatureApparent)}`)
-                wrapper.appendChild(document.createElement("p").innerText = `UV-Index: ${Math.round(this.weather.timelines.hourly[3*i].uvIndex)}`)
-                wrapper.appendChild(document.createElement("p").innerText = `Regenmenge(mm): ${this.weather.timelines.hourly[3*i].rainIntensity}`)
-                
-            }
+            wrapper.innerHTML = this.weather.timelines.hourly[0].time
             return wrapper;
         }
     },
     socketNotificationReceived: function(notification, payload) {
         if (notification === "WEATHER_RESULT") {
-            Log.info("Hier kam das Wetter an")
-            Log.info(payload)
             this.processWeather(payload);
+            this.updateDom();
         }
     },
     sheduleUpdate: function() {
@@ -65,3 +55,16 @@ Module.register("MMM-Tomorrow-Weather", {
         self.getWeather();
     },
 });
+
+/*
+for(let i = 0; i < 4; i++) {
+                const time = new Date(this.weather.timelines.hourly[3*i].time).toLocaleTimeString()
+                Log.info(time)
+                wrapper.appendChild(document.createElement("p").innerText = time)
+                wrapper.appendChild(document.createElement("p").innerText = `Temp: ${Math.round(this.weather.timelines.hourly[3*i].temperature)}`)
+                wrapper.appendChild(document.createElement("p").innerText = `Gefühlte Temp: ${Math.round(this.weather.timelines.hourly[3*i].temperatureApparent)}`)
+                wrapper.appendChild(document.createElement("p").innerText = `UV-Index: ${Math.round(this.weather.timelines.hourly[3*i].uvIndex)}`)
+                wrapper.appendChild(document.createElement("p").innerText = `Regenmenge(mm): ${this.weather.timelines.hourly[3*i].rainIntensity}`)
+                
+            }
+*/
