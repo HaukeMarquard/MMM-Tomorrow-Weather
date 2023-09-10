@@ -1,5 +1,5 @@
 const NodeHelper = require('node_helper')
-var request = require('request')
+var axios = require('axios')
 const Log = require('logger')
 
 module.exports = NodeHelper.create({
@@ -10,24 +10,9 @@ module.exports = NodeHelper.create({
         var that = this;
         this.url = `https://api.tomorrow.io/v4/weather/forecast?location=${payload.lat},${payload.lon}&apikey=${payload.api_key}`
         Log.info(this.url)
-        request({
-            url: this.url,
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-            }
-        }, (error, response, body) => {
-            var result = null;
-            Log.log(result)
-            Log.log(body)
-            Log.error(error)
-            if(!error && response.statusCode == 200) {
-                result = JSON.parse(body);
-            } else {
-                result = null
-            }
-            that.sendSocketNotification('GOT-WEATHER', result)
-        })
+        axios.get(this.url)
+            .then(response => console.log(response.data))
+            .then(taht.sendSocketNotification('GOT-WEATHER', response.data))
     },
     socketNotificationReceived: function(notification, payload) {
         if(notification === 'GET-WEATHER') {
