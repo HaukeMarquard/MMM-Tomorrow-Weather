@@ -6178,7 +6178,7 @@ Module.register("MMM-Tomorrow-Weather", {
         for(let i = 0; i < 4; i++) {
             const p = document.createElement("p")
             const time = new Date(this.weather.timelines.hourly[3*i].time)
-            p.innerText = `${time}`
+            p.innerText = `${time.toLocaleTimeString()}`
             const p2 = document.createElement("p")
             p2.innerText = `Temp: ${Math.round(this.weather.timelines.hourly[3*i].values.temperature)}, Gefühlte Temp: ${Math.round(this.weather.timelines.hourly[3*i].values.temperatureApparent)}, UV-Index: ${Math.round(this.weather.timelines.hourly[3*i].values.uvIndex)}, Regenmenge(mm): ${this.weather.timelines.hourly[3*i].values.rainIntensity}`
             wrapper.appendChild(p)
