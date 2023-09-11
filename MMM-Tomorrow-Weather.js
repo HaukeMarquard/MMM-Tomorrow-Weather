@@ -49,7 +49,7 @@ Module.register("MMM-Tomorrow-Weather", {
                 const time = new Date(this.weather.timelines.daily[i].time)
                 p.innerText = `${time.toLocaleDateString()}`
                 const p2 = document.createElement("p")
-                p2.innerText = `Min: ${Math.round(this.weather.timelines.daily[i].values.temperatureMin * 10)/10}, Max: ${Math.round(this.weather.timelines.daily[i].values.temperatureMax*10)/10}, UV-Index: ${Math.round(this.weather.timelines.daily[i].values.uvIndexMfax)}, Regenmenge(mm): ${this.weather.timelines.daily[i].values.rainIntensityMax}`   
+                p2.innerText = `Min: ${Math.round(this.weather.timelines.daily[i].values.temperatureMin * 10)/10}, Max: ${Math.round(this.weather.timelines.daily[i].values.temperatureMax*10)/10}, UV-Index: ${Math.round(this.weather.timelines.daily[i].values.uvIndexMax)}, Regenmenge(mm): ${this.weather.timelines.daily[i].values.rainIntensityMax}`   
                 wrapper.appendChild(p)
                 wrapper.appendChild(p2)
             }
