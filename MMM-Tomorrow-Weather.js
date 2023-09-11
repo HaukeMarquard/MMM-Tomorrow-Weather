@@ -6172,8 +6172,9 @@ Module.register("MMM-Tomorrow-Weather", {
         const p = document.createElement("p")
         p.innerText = this.weather.timelines.hourly[0].values.temperature
         wrapper.appendChild(p)
-        p.innerText = this.weather.timelines.hourly[0].values.uvIndex
-        wrapper.appendChild(p)
+        const p2 = document.createElement("p")
+        p2.innerText = this.weather.timelines.hourly[0].values.uvIndex
+        wrapper.appendChild(p2)
         // for(let i = 0; i < 4; i++) {
         //     const time = new Date(this.weather.timelines.hourly[3*i].time)
         //     wrapper.appendChild(document.createElement("p").innerText = `${time.toLocaleTimeString()}`)
