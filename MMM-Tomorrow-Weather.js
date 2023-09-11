@@ -6169,16 +6169,17 @@ Module.register("MMM-Tomorrow-Weather", {
     },
     getDom: function() {
         var wrapper = document.createElement("div");
-        wrapper.innerHTML = this.weather.timelines.hourly[0].values.temperature;
-        for(let i = 0; i < 4; i++) {
-            const time = new Date(this.weather.timelines.hourly[3*i].time)
-            wrapper.appendChild(document.createElement("p").innerText = `${time.toLocaleTimeString()}`)
-            wrapper.appendChild(document.createElement("p").innerText = `Temp: ${Math.round(this.weather.timelines.hourly[3*i].values.temperature)}`)
-            wrapper.appendChild(document.createElement("p").innerText = `Gefühlte Temp: ${Math.round(this.weather.timelines.hourly[3*i].values.temperatureApparent)}`)
-            wrapper.appendChild(document.createElement("p").innerText = `UV-Index: ${Math.round(this.weather.timelines.hourly[3*i].values.uvIndex)}`)
-            wrapper.appendChild(document.createElement("p").innerText = `Regenmenge(mm): ${this.weather.timelines.hourly[3*i].values.rainIntensity}`)
+        wrapper.appendChild(document.createElement("p").innerText = this.weather.timelines.hourly[0].values.temperature)
+        wrapper.appendChild(document.createElement("p").innerText = this.weather.timelines.hourly[0].values.uvIndex)
+        // for(let i = 0; i < 4; i++) {
+        //     const time = new Date(this.weather.timelines.hourly[3*i].time)
+        //     wrapper.appendChild(document.createElement("p").innerText = `${time.toLocaleTimeString()}`)
+        //     wrapper.appendChild(document.createElement("p").innerText = `Temp: ${Math.round(this.weather.timelines.hourly[3*i].values.temperature)}`)
+        //     wrapper.appendChild(document.createElement("p").innerText = `Gefühlte Temp: ${Math.round(this.weather.timelines.hourly[3*i].values.temperatureApparent)}`)
+        //     wrapper.appendChild(document.createElement("p").innerText = `UV-Index: ${Math.round(this.weather.timelines.hourly[3*i].values.uvIndex)}`)
+        //     wrapper.appendChild(document.createElement("p").innerText = `Regenmenge(mm): ${this.weather.timelines.hourly[3*i].values.rainIntensity}`)
             
-        }
+        // }
         return wrapper;
         // if(this.weather == null) {
         //     var wrapper = document.createElement("div");
