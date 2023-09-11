@@ -6171,6 +6171,8 @@ Module.register("MMM-Tomorrow-Weather", {
             wrapper.innerHTML = "Loading...";
             return wrapper;
         } else {
+            Log.log("else zweig")
+            Log.log(this.weather.timelines.hourly)
             var wrapper = document.createElement("div")
             wrapper.innerHTML = this.weather.timelines.hourly[0].time
             for(let i = 0; i < 4; i++) {
