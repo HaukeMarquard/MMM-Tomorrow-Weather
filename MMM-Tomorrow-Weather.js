@@ -34,7 +34,7 @@ Module.register("MMM-Tomorrow-Weather", {
     },
     getDom: function() {
         var wrapper = document.createElement("div");
-        wrapper.innerHTML = "Loading...";
+        wrapper.innerHTML = this.weather.test;
         return wrapper;
         // if(this.weather == null) {
         //     var wrapper = document.createElement("div");
