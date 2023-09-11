@@ -71,7 +71,7 @@ Module.register("MMM-Tomorrow-Weather", {
     },
     getDom: function() {
         var wrapper = document.createElement("div");
-        wrapper.innerHTML = this.weather.timelines.hourly[0].time;
+        wrapper.innerHTML = this.weather.timelines.hourly[0].values.temperature;
         return wrapper;
         // if(this.weather == null) {
         //     var wrapper = document.createElement("div");
