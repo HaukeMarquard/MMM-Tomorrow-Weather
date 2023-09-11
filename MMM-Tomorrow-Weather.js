@@ -9,7 +9,44 @@ Module.register("MMM-Tomorrow-Weather", {
     start: function() {
         Log.info('Starting Module: ' + this.name);
         this.weather = {
-            test: 23,
+            "timelines": {
+                "hourly" :[
+                    {
+                        "time": "2023-09-11T15:00:00Z",
+                        "values": {
+                            "cloudBase": 0.93,
+                            "cloudCeiling": null,
+                            "cloudCover": 41,
+                            "dewPoint": 19.5,
+                            "evapotranspiration": 0.244,
+                            "freezingRainIntensity": 0,
+                            "humidity": 64,
+                            "iceAccumulation": 0,
+                            "iceAccumulationLwe": 0,
+                            "precipitationProbability": 0,
+                            "pressureSurfaceLevel": 1011.18,
+                            "rainAccumulation": 0,
+                            "rainAccumulationLwe": 0,
+                            "rainIntensity": 0,
+                            "sleetAccumulation": 0,
+                            "sleetAccumulationLwe": 0,
+                            "sleetIntensity": 0,
+                            "snowAccumulation": 0,
+                            "snowAccumulationLwe": 0,
+                            "snowIntensity": 0,
+                            "temperature": 26.81,
+                            "temperatureApparent": 28.12,
+                            "uvHealthConcern": 0,
+                            "uvIndex": 0,
+                            "visibility": 16,
+                            "weatherCode": 1101,
+                            "windDirection": 232,
+                            "windGust": 5.88,
+                            "windSpeed": 2.81
+                        }
+                    },
+                ]
+            }
         };
         this.sheduleUpdate();
     },
@@ -34,7 +71,7 @@ Module.register("MMM-Tomorrow-Weather", {
     },
     getDom: function() {
         var wrapper = document.createElement("div");
-        wrapper.innerHTML = this.weather.test;
+        wrapper.innerHTML = this.weather.timelines.hourly[0].time;
         return wrapper;
         // if(this.weather == null) {
         //     var wrapper = document.createElement("div");
