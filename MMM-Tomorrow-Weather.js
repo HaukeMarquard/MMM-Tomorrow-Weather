@@ -45,6 +45,8 @@ Module.register("MMM-Tomorrow-Weather", {
                 wrapper_hourly.style.alignItems = "center";
                 wrapper_hourly.style.border = "1px solid white";
                 wrapper_hourly.style.borderRadius = "10px";
+                wrapper_hourly.style.padding = "3px";
+                wrapper_hourly.style.gap = "3px";
                 const p = document.createElement("p")
                 const time = new Date(this.weather.timelines.hourly[3*i].time)
                 p.innerText = `${time.toLocaleTimeString()}`
@@ -74,6 +76,8 @@ Module.register("MMM-Tomorrow-Weather", {
                 wrapper_daily.style.alignItems = "center";
                 wrapper_daily.style.border = "1px solid white";
                 wrapper_daily.style.borderRadius = "10px";
+                wrapper_daily.style.padding = "3px";
+                wrapper_daily.style.gap = "3px";
                 const p = document.createElement("p")
                 const time = new Date(this.weather.timelines.daily[i].time)
                 p.innerText = `${time.toLocaleDateString()}`
@@ -83,10 +87,10 @@ Module.register("MMM-Tomorrow-Weather", {
                 uvIndex.innerText = `UV-Index: ${Math.round(this.weather.timelines.daily[i].values.uvIndexMax)}`
                 const rainIntensity = document.createElement("p")
                 rainIntensity.innerText = `Regenmenge(mm): ${this.weather.timelines.daily[i].values.rainIntensityMax}`
-                wrapper.appendChild(p)
-                wrapper.appendChild(temperature)
-                wrapper.appendChild(uvIndex)
-                wrapper.appendChild(rainIntensity)
+                wrapper_daily.appendChild(p)
+                wrapper_daily.appendChild(temperature)
+                wrapper_daily.appendChild(uvIndex)
+                wrapper_daily.appendChild(rainIntensity)
                 wrapper_daylies.appendChild(wrapper_daily)
             }
             container.appendChild(wrapper_daylies)
