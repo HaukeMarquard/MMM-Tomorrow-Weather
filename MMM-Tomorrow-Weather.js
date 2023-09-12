@@ -34,26 +34,64 @@ Module.register("MMM-Tomorrow-Weather", {
             wrapper.innerHTML = "Loading...";
             return wrapper;
         } else {
+            var container = document.createElement("div");
             var wrapper = document.createElement("div");
+            wrapper.style.display = "flex";
             for(let i = 0; i < 4; i++) {
+                var wrapper_hourly = document.createElement("div");
+                wrapper_hourly.style.display = "flex";
+                wrapper_hourly.style.flexDirection = "column";
+                wrapper_hourly.style.justifyContent = "center";
+                wrapper_hourly.style.alignItems = "center";
+                wrapper_hourly.style.border = "1px solid white";
+                wrapper_hourly.style.borderRadius = "10px";
                 const p = document.createElement("p")
                 const time = new Date(this.weather.timelines.hourly[3*i].time)
                 p.innerText = `${time.toLocaleTimeString()}`
-                const p2 = document.createElement("p")
-                p2.innerText = `Temp: ${Math.round(this.weather.timelines.hourly[3*i].values.temperature * 10)/10}, Gefühlte Temp: ${Math.round(this.weather.timelines.hourly[3*i].values.temperatureApparent*10)/10}, UV-Index: ${Math.round(this.weather.timelines.hourly[3*i].values.uvIndex)}, Regenmenge(mm): ${this.weather.timelines.hourly[3*i].values.rainIntensity}`
-                wrapper.appendChild(p)
-                wrapper.appendChild(p2)
+                const temperature = document.createElement("p")
+                temperature.innerText = `Temp: ${Math.round(this.weather.timelines.hourly[3*i].values.temperature * 10)/10}`
+                const temperatureApparent = document.createElement("p")
+                temperatureApparent.innerText = `Gefühlte Temp: ${Math.round(this.weather.timelines.hourly[3*i].values.temperatureApparent*10)/10}`
+                const uvIndex = document.createElement("p")
+                uvIndex.innerText = `UV-Index: ${Math.round(this.weather.timelines.hourly[3*i].values.uvIndex)}`
+                const rainIntensity = document.createElement("p")
+                rainIntensity.innerText = `Regenmenge(mm): ${this.weather.timelines.hourly[3*i].values.rainIntensity}`
+                wrapper_hourly.appendChild(p)
+                wrapper_hourly.appendChild(temperature)
+                wrapper_hourly.appendChild(temperatureApparent)
+                wrapper_hourly.appendChild(uvIndex)
+                wrapper_hourly.appendChild(rainIntensity)
+                wrapper.appendChild(wrapper_hourly)
             }
+            container.appendChild(wrapper)
+            wrapper_daylies = document.createElement("div");
+            wrapper_daylies.style.display = "flex";
             for(let i = 0; i < 3; i++) {
+                var wrapper_daily = document.createElement("div");
+                wrapper_daily.style.display = "flex";
+                wrapper_daily.style.flexDirection = "column";
+                wrapper_daily.style.justifyContent = "center";
+                wrapper_daily.style.alignItems = "center";
+                wrapper_daily.style.border = "1px solid white";
+                wrapper_daily.style.borderRadius = "10px";
                 const p = document.createElement("p")
                 const time = new Date(this.weather.timelines.daily[i].time)
                 p.innerText = `${time.toLocaleDateString()}`
-                const p2 = document.createElement("p")
-                p2.innerText = `Min: ${Math.round(this.weather.timelines.daily[i].values.temperatureMin * 10)/10}, Max: ${Math.round(this.weather.timelines.daily[i].values.temperatureMax*10)/10}, UV-Index: ${Math.round(this.weather.timelines.daily[i].values.uvIndexMax)}, Regenmenge(mm): ${this.weather.timelines.daily[i].values.rainIntensityMax}`   
+                const temperature = document.createElement("p")
+                temperature.innerText = `Temp: ${Math.round(this.weather.timelines.daily[i].values.temperatureMin * 10)/10} - ${Math.round(this.weather.timelines.daily[i].values.temperatureMax*10)/10}`
+                const uvIndex = document.createElement("p")
+                uvIndex.innerText = `UV-Index: ${Math.round(this.weather.timelines.daily[i].values.uvIndexMax)}`
+                const rainIntensity = document.createElement("p")
+                rainIntensity.innerText = `Regenmenge(mm): ${this.weather.timelines.daily[i].values.rainIntensityMax}`
                 wrapper.appendChild(p)
-                wrapper.appendChild(p2)
+                wrapper.appendChild(temperature)
+                wrapper.appendChild(uvIndex)
+                wrapper.appendChild(rainIntensity)
+                wrapper_daylies.appendChild(wrapper_daily)
             }
-            return wrapper;
+            container.appendChild(wrapper_daylies)
+            
+            return container;
         }
     },
     socketNotificationReceived: function(notification, payload) {
