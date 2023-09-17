@@ -98,7 +98,7 @@ Module.register("MMM-Tomorrow-Weather", {
     },
     socketNotificationReceived: function(notification, payload) {
         if (notification === "WEATHER_RESULT") {
-            console.log("Data kommt an")
+            Log.log("Data kommt an")
             this.processWeather(payload);
             this.updateDom();
         }
