@@ -53,7 +53,7 @@ Module.register("MMM-Tomorrow-Weather", {
                     hour: (actual + 6) % 24
                 }
             ]
-            for (let i = actual; i < 3; i++) {
+            for (let i = 0; i < 3; i++) {
                 var wrapper = document.createElement("div");      
                 wrapper.classList.add("hourly_forecast")
                 const first = document.createElement("div")
