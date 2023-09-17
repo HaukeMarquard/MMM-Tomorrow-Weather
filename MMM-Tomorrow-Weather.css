@@ -36,12 +36,14 @@ img.small {
     display:grid;
     grid-template-columns: 1fr 1fr;
     border: 1px solid white;
+
 }
 
 .daily_forecast {
     display: grid;
     grid-template-columns: 1fr 2fr;
     border: 1px solid white;
+    padding: 10px;
 }
 
 .daily_forecast .header {
