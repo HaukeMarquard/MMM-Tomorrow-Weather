@@ -46,7 +46,8 @@ Module.register("MMM-Tomorrow-Weather", {
                 const text = document.createElement("p")
                 text.innerText = i === 0 ? "Aktuell" : i === 1 ? "+3h" : "+6h"
                 const img = document.createElement("img")
-                img.src = `https:${this.weather.forecast.forecastday[0].hour[3*i].condition.icon}`
+                // img.src = `https:${this.weather.forecast.forecastday[0].hour[3*i].condition.icon}`
+                img.src = `${/public/regentropfen.png}`
                 first.appendChild(text) 
                 first.appendChild(img)
                 const second = document.createElement("div")
