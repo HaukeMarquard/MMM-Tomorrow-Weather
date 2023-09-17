@@ -90,8 +90,14 @@ Module.register("MMM-Tomorrow-Weather", {
             for (let i = 1; i < 3; i++) {
                 var wrapper = document.createElement("div");
                 wrapper.classList.add("daily_forecast")
+                const header = document.createElement("p")
+                header.classList.add("header")
+                header.innerText = i === 1 ? "Morgen" : "Übermorgen"
+                const first_container = document.createElement("div")
+                first_container.classList.add("first")
                 const first = document.createElement("img")
                 first.src = `https:${this.weather.forecast.forecastday[i].day.condition.icon}`
+                first_container.appendChild(first)
                 const second = document.createElement("div")
                 const temp = document.createElement("p")
                 temp.innerText = `${this.weather.forecast.forecastday[i].day.mintemp_c} - ${this.weather.forecast.forecastday[i].day.maxtemp_c} °C`
@@ -111,7 +117,8 @@ Module.register("MMM-Tomorrow-Weather", {
                 second.appendChild(temp)
                 second.appendChild(uv)
                 second.appendChild(rain_container)
-                wrapper.appendChild(first)
+                wrapper.appendChild(header)
+                wrapper.appendChild(first_container)
                 wrapper.appendChild(second)
                 daily_container.appendChild(wrapper)
             }

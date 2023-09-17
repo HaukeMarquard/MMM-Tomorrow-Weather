@@ -49,4 +49,10 @@ img.small {
     grid-column-end:3; 
 }
 
+daily_forecast .first {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 
