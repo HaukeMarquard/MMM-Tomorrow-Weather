@@ -8,6 +8,7 @@ Module.register("MMM-Tomorrow-Weather", {
     },
     start: function() {
         Log.info('Starting Module: ' + this.name);
+        Log.info("Starting dingens durch hier")
         this.weather = null
         
         this.sheduleUpdate();
