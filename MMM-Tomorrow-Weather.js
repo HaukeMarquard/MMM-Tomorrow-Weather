@@ -46,8 +46,8 @@ Module.register("MMM-Tomorrow-Weather", {
                 const text = document.createElement("p")
                 text.innerText = i === 0 ? "Aktuell" : i === 1 ? "+3h" : "+6h"
                 const img = document.createElement("img")
-                // img.src = `https:${this.weather.forecast.forecastday[0].hour[3*i].condition.icon}`
-                img.src = "/MMM-Tomorrow-Weather/regentropfen.png"
+                img.src = `https:${this.weather.forecast.forecastday[0].hour[3*i].condition.icon}`
+                // img.src = "/MMM-Tomorrow-Weather/regentropfen.png"
                 first.appendChild(text) 
                 first.appendChild(img)
                 const second = document.createElement("div")
@@ -61,6 +61,10 @@ Module.register("MMM-Tomorrow-Weather", {
                 rain_precip.classList.add("item")
                 const r_description = document.createElement("p")
                 r_description.innerText = `${this.weather.forecast.forecastday[0].hour[3*i].chance_of_rain}`
+                const r_img = document.createElement("img")
+                r_img.classList.add("small")
+                r_img.src = "/MMM-Tomorrow-Weather/regentropfen.png"
+                rain_precip.appendChild(r_img)
                 rain_precip.appendChild(r_description)
                 const uv_index = document.createElement("div")
                 uv_index.classList.add("item")
