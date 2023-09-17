@@ -49,7 +49,9 @@ Module.register("MMM-Tomorrow-Weather", {
                 wrapper_hourly.style.gap = "3px";
                 const p = document.createElement("p")
                 const time = new Date(this.weather.forecast.forecastday[0].hour[3*i].time)
-                p.innerText = `${time.toLocaleTimeString()}`
+                console.log(this.weather.forecast.forecastday[0].hour[3*i])
+                // p.innerText = `${time.toLocaleTimeString()}`
+                p.innerText = `Hauke`
                 const temperature = document.createElement("p")
                 temperature.innerText = `Temp: ${this.weather.forecast.forecastday[0].hour[3*i].temp_c}`
                 const uvIndex = document.createElement("p")
