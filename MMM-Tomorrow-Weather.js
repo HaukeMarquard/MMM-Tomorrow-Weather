@@ -45,11 +45,9 @@ Module.register("MMM-Tomorrow-Weather", {
                 first.classList.add("first")
                 const text = document.createElement("p")
                 text.innerText = i === 0 ? "Aktuell" : i === 1 ? "+3h" : "+6h"
-                // const img = document.createElement("img")
-                // img.src = `https:${this.weather.forecast.forecastday[0].hour[3*i].condition.icon}`
+                const img = document.createElement("img")
+                img.src = `https:${this.weather.forecast.forecastday[0].hour[3*i].condition.icon}`
                 // img.src = `${/public/regentropfen.png}`
-                const img = document.createElement("div")
-                img.id = "rain_drops"
                 first.appendChild(text) 
                 first.appendChild(img)
                 const second = document.createElement("div")
@@ -83,6 +81,29 @@ Module.register("MMM-Tomorrow-Weather", {
                 container.appendChild(wrapper)
             }
 
+            var daily_container = document.createElement("div");
+            daily_container.classList.add("daily_forecast_container");
+            for (let i = 1; i < 3; i++) {
+                var wrapper = document.createElement("div");
+                wrapper.classList.add("daily_forecast")
+                const first = document.createElement("img")
+                first.src = `https:${this.weather.forecast.forecastday[i].day.condition.icon}`
+                const second = document.createElement("div")
+                const temp = document.createElement("p")
+                temp.innerText = `${this.weather.forecast.forecastday[i].day.maxtemp_c} °C`
+                const uv = document.createElement("p")
+                uv.innerText = `${Math.round(this.weather.forecast.forecastday[i].day.uv)}`
+                const rain = document.createElement("p")
+                rain.innerText = `${this.weather.forecast.forecastday[i].day.daily_chance_of_rain}`
+                second.appendChild(temp)
+                second.appendChild(uv)
+                second.appendChild(rain)
+                wrapper.appendChild(first)
+                wrapper.appendChild(second)
+                daily_container.appendChild(wrapper)
+            }
+            container.appendChild(daily_container)
+            
 
 
 

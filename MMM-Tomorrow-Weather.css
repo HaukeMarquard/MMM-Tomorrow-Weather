@@ -27,14 +27,21 @@ img {
     height: 50px;
 }
 
-#rain_drops {
-    font-weight: initial;
-    color: #ffffff;
-    display: inline-block;
-    text-align: center;
-    width: 45px;
-    background-image: url('/MMM-Tomorrow-Weather/regentropfen.png');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
+.daily_forecast_container {
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid white;
 }
+
+.daily_forecast {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    border: 1px solid white;
+}
+
+.daily_forecast .header {
+    grid-column-start:1; 
+    grid-column-end:3; 
+}
+
+
