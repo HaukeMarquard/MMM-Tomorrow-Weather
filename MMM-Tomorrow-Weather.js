@@ -49,13 +49,13 @@ Module.register("MMM-Tomorrow-Weather", {
                 img.src = `https:${this.weather.forecast.forecastday[0].hour[3*i].condition.icon}`
                 first.appendChild(text) 
                 first.appendChild(img)
-                // const second = document.createElement("div")
-                // second.classList.add("params")
-                // const temperature = document.createElement("div")
-                // temperature.classList.add("item")
-                // const t_description = document.createElement("p")
-                // t_description.innerText = `${this.weather.forecast.forecastday[0].hour[3*i].temp_c}`
-                // temperate.appendChild(t_description)
+                const second = document.createElement("div")
+                second.classList.add("params")
+                const temperature = document.createElement("div")
+                temperature.classList.add("item")
+                const t_description = document.createElement("p")
+                t_description.innerText = `${this.weather.forecast.forecastday[0].hour[3*i].temp_c}`
+                temperate.appendChild(t_description)
                 // const rain_precip = document.createElement("div")
                 // rain_precip.classList.add("item")
                 // const r_description = document.createElement("p")
@@ -71,12 +71,12 @@ Module.register("MMM-Tomorrow-Weather", {
                 // const a_description = document.createElement("p")
                 // a_description.innerText = `${this.weather.forecast.forecastday[0].hour[3*i].humidity}`
                 // air_humidity.appendChild(a_description)
-                // second.appendChild(temperature)
+                second.appendChild(temperature)
                 // second.appendChild(rain_precip)
                 // second.appendChild(uv_index)
                 // second.appendChild(air_humidity)
                 wrapper.appendChild(first)
-                // wrapper.appendChild(second)
+                wrapper.appendChild(second)
                 container.appendChild(wrapper)
             }
 
