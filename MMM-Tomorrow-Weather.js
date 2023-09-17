@@ -68,34 +68,34 @@ Module.register("MMM-Tomorrow-Weather", {
                 wrapper.appendChild(wrapper_hourly)
             }
             container.appendChild(wrapper)
-            wrapper_daylies = document.createElement("div");
-            wrapper_daylies.style.display = "flex";
-            var wrapper_daily = document.createElement("div");
-            for(let i = 0; i < 3; i++) {
-                wrapper_daily.style.display = "flex";
-                wrapper_daily.style.flexDirection = "column";
-                wrapper_daily.style.justifyContent = "center";
-                wrapper_daily.style.alignItems = "center";
-                wrapper_daily.style.border = "1px solid white";
-                wrapper_daily.style.borderRadius = "10px";
-                wrapper_daily.style.padding = "3px";
-                wrapper_daily.style.gap = "3px";
-                const p = document.createElement("p")
-                const time = new Date(this.weather.timelines.daily[i].time)
-                p.innerText = `${time.toLocaleDateString()}`
-                const temperature = document.createElement("p")
-                temperature.innerText = `Maxtemp: ${this.weather.forecast.forecastday[i+1].day.maxtemp_c}`
-                const uvIndex = document.createElement("p")
-                uvIndex.innerText = `UV-Index: ${this.weather.forecast.forecastday[i+1].day.uv}`
-                const rainIntensity = document.createElement("p")
-                rainIntensity.innerText = `Regenmengechance: ${this.weather.forecast.forecastday[i+1].day.daily_chance_of_rain}`
-                wrapper_daily.appendChild(p)
-                wrapper_daily.appendChild(temperature)
-                wrapper_daily.appendChild(uvIndex)
-                wrapper_daily.appendChild(rainIntensity)
-                wrapper_daylies.appendChild(wrapper_daily)
-            }
-            container.appendChild(wrapper_daylies)
+            // wrapper_daylies = document.createElement("div");
+            // wrapper_daylies.style.display = "flex";
+            // var wrapper_daily = document.createElement("div");
+            // for(let i = 0; i < 3; i++) {
+            //     wrapper_daily.style.display = "flex";
+            //     wrapper_daily.style.flexDirection = "column";
+            //     wrapper_daily.style.justifyContent = "center";
+            //     wrapper_daily.style.alignItems = "center";
+            //     wrapper_daily.style.border = "1px solid white";
+            //     wrapper_daily.style.borderRadius = "10px";
+            //     wrapper_daily.style.padding = "3px";
+            //     wrapper_daily.style.gap = "3px";
+            //     const p = document.createElement("p")
+            //     const time = new Date(this.weather.timelines.daily[i].time)
+            //     p.innerText = `${time.toLocaleDateString()}`
+            //     const temperature = document.createElement("p")
+            //     temperature.innerText = `Maxtemp: ${this.weather.forecast.forecastday[i+1].day.maxtemp_c}`
+            //     const uvIndex = document.createElement("p")
+            //     uvIndex.innerText = `UV-Index: ${this.weather.forecast.forecastday[i+1].day.uv}`
+            //     const rainIntensity = document.createElement("p")
+            //     rainIntensity.innerText = `Regenmengechance: ${this.weather.forecast.forecastday[i+1].day.daily_chance_of_rain}`
+            //     wrapper_daily.appendChild(p)
+            //     wrapper_daily.appendChild(temperature)
+            //     wrapper_daily.appendChild(uvIndex)
+            //     wrapper_daily.appendChild(rainIntensity)
+            //     wrapper_daylies.appendChild(wrapper_daily)
+            // }
+            // container.appendChild(wrapper_daylies)
 
             
             return container;
