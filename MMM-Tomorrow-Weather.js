@@ -87,16 +87,16 @@ Module.register("MMM-Tomorrow-Weather", {
                 // p.innerText = `${this.weather.forecast.forecastday[i+1]}`
                 const time = new Date(this.weather.forecast.forecastday[i+1].date)
                 p.innerText = `${time.toLocaleDateString()}`
-            //     const temperature = document.createElement("p")
-            //     temperature.innerText = `Maxtemp: ${this.weather.forecast.forecastday[i+1].day.maxtemp_c}`
-            //     const uvIndex = document.createElement("p")
-            //     uvIndex.innerText = `UV-Index: ${this.weather.forecast.forecastday[i+1].day.uv}`
-            //     const rainIntensity = document.createElement("p")
-            //     rainIntensity.innerText = `Regenmengechance: ${this.weather.forecast.forecastday[i+1].day.daily_chance_of_rain}`
+                const temperature = document.createElement("p")
+                temperature.innerText = `Maxtemp: ${this.weather.forecast.forecastday[i+1].day.maxtemp_c}`
+                const uvIndex = document.createElement("p")
+                uvIndex.innerText = `UV-Index: ${this.weather.forecast.forecastday[i+1].day.uv}`
+                const rainIntensity = document.createElement("p")
+                rainIntensity.innerText = `Regenmengechance: ${this.weather.forecast.forecastday[i+1].day.daily_chance_of_rain}`
                 wrapper_daily.appendChild(p)
-            //     wrapper_daily.appendChild(temperature)
-            //     wrapper_daily.appendChild(uvIndex)
-            //     wrapper_daily.appendChild(rainIntensity)
+                wrapper_daily.appendChild(temperature)
+                wrapper_daily.appendChild(uvIndex)
+                wrapper_daily.appendChild(rainIntensity)
                 wrapper_daylies.appendChild(wrapper_daily)
             }
             container.appendChild(wrapper_daylies)
