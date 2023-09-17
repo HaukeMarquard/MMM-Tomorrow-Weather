@@ -37,7 +37,22 @@ Module.register("MMM-Tomorrow-Weather", {
         } else {
             var container = document.createElement("div");
             // container.innerHTML = `${this.weather.forecast.forecastday[0].date}`
-            const actual = 0;
+            const now = new Date()
+            const actual = now.getHours();
+            const hour_prevs = [
+                {
+                    day: 0,
+                    hour: actual
+                },
+                {
+                    day: Math.floor((actual + 3) / 24),
+                    hour: (actual + 3) % 24
+                },
+                {
+                    day: Math.floor((actual + 6) / 24),
+                    hour: (actual + 6) % 24
+                }
+            ]
             for (let i = actual; i < 3; i++) {
                 var wrapper = document.createElement("div");      
                 wrapper.classList.add("hourly_forecast")
@@ -46,7 +61,7 @@ Module.register("MMM-Tomorrow-Weather", {
                 const text = document.createElement("p")
                 text.innerText = i === 0 ? "Aktuell" : i === 1 ? "+3h" : "+6h"
                 const img = document.createElement("img")
-                img.src = `https:${this.weather.forecast.forecastday[0].hour[3*i].condition.icon}`
+                img.src = `https:${this.weather.forecast.forecastday[hour_prevs[i].day].hour[hour_prevs[i].hour].condition.icon}`
                 // img.src = "/MMM-Tomorrow-Weather/regentropfen.png"
                 first.appendChild(text) 
                 first.appendChild(img)
@@ -55,12 +70,12 @@ Module.register("MMM-Tomorrow-Weather", {
                 const temperature = document.createElement("div")
                 temperature.classList.add("item")
                 const t_description = document.createElement("p")
-                t_description.innerText = `${this.weather.forecast.forecastday[0].hour[3*i].temp_c} °C`
+                t_description.innerText = `${this.weather.forecast.forecastday[hour_prevs[i].day].hour[hour_prevs[i].hour].temp_c} °C`
                 temperature.appendChild(t_description)
                 const rain_precip = document.createElement("div")
                 rain_precip.classList.add("item")
                 const r_description = document.createElement("p")
-                r_description.innerText = `${this.weather.forecast.forecastday[0].hour[3*i].chance_of_rain}%`
+                r_description.innerText = `${this.weather.forecast.forecastday[hour_prevs[i].day].hour[hour_prevs[i].hour].chance_of_rain}%`
                 const r_img = document.createElement("img")
                 r_img.classList.add("small")
                 r_img.src = "/MMM-Tomorrow-Weather/regentropfen.png"
@@ -69,12 +84,12 @@ Module.register("MMM-Tomorrow-Weather", {
                 const uv_index = document.createElement("div")
                 uv_index.classList.add("item")
                 const u_description = document.createElement("p")
-                u_description.innerText = `UV: ${Math.round(this.weather.forecast.forecastday[0].hour[3*i].uv)}`
+                u_description.innerText = `UV: ${Math.round(this.weather.forecast.forecastday[hour_prevs[i].day].hour[hour_prevs[i].hour].uv)}`
                 uv_index.appendChild(u_description)
                 const air_humidity = document.createElement("div")
                 air_humidity.classList.add("item")
                 const a_description = document.createElement("p")
-                a_description.innerText = `${this.weather.forecast.forecastday[0].hour[3*i].humidity}`
+                a_description.innerText = `${this.weather.forecast.forecastday[hour_prevs[i].day].hour[hour_prevs[i].hour].humidity}`
                 air_humidity.appendChild(a_description)
                 second.appendChild(temperature)
                 second.appendChild(rain_precip)
