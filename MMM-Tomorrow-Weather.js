@@ -36,36 +36,36 @@ Module.register("MMM-Tomorrow-Weather", {
             return wrapper;
         } else {
             var container = document.createElement("div");
-            container.innerHTML = `${this.weather.forecast.forecastday[0].date}`
-            // var wrapper = document.createElement("div");
-            // wrapper.style.display = "flex";
-            // for(let i = 0; i < 4; i++) {
-            //     var wrapper_hourly = document.createElement("div");
-            //     wrapper_hourly.style.display = "flex";
-            //     wrapper_hourly.style.flexDirection = "column";
-            //     wrapper_hourly.style.justifyContent = "center";
-            //     wrapper_hourly.style.alignItems = "center";
-            //     wrapper_hourly.style.border = "1px solid white";
-            //     wrapper_hourly.style.borderRadius = "10px";
-            //     wrapper_hourly.style.padding = "3px";
-            //     wrapper_hourly.style.gap = "3px";
-            //     const p = document.createElement("p")
-            //     const time = new Date(this.weather.forecast.forecastday[0].hour[3*i].time)
-            //     // p.innerText = `${time.toLocaleTimeString()}`
-            //     p.innerText = `Hauke`
-            //     const temperature = document.createElement("p")
-            //     temperature.innerText = `Temp: ${this.weather.forecast.forecastday[0].hour[3*i].temp_c}`
-            //     const uvIndex = document.createElement("p")
-            //     uvIndex.innerText = `UV-Index: ${Math.round(this.weather.forecast.forecastday[0].hour[3*i].uv)}`
-            //     const rainIntensity = document.createElement("p")
-            //     rainIntensity.innerText = `Regenchance: ${this.weather.forecast.forecastday[0].hour[3*i].chance_of_rain}`
-            //     wrapper_hourly.appendChild(p)
-            //     wrapper_hourly.appendChild(temperature)
-            //     wrapper_hourly.appendChild(uvIndex)
-            //     wrapper_hourly.appendChild(rainIntensity)
-            //     wrapper.appendChild(wrapper_hourly)
-            // }
-            // container.appendChild(wrapper)
+            // container.innerHTML = `${this.weather.forecast.forecastday[0].date}`
+            var wrapper = document.createElement("div");
+            wrapper.style.display = "flex";
+            for(let i = 0; i < 4; i++) {
+                var wrapper_hourly = document.createElement("div");
+                wrapper_hourly.style.display = "flex";
+                wrapper_hourly.style.flexDirection = "column";
+                wrapper_hourly.style.justifyContent = "center";
+                wrapper_hourly.style.alignItems = "center";
+                wrapper_hourly.style.border = "1px solid white";
+                wrapper_hourly.style.borderRadius = "10px";
+                wrapper_hourly.style.padding = "3px";
+                wrapper_hourly.style.gap = "3px";
+                const p = document.createElement("p")
+                // const time = new Date(this.weather.forecast.forecastday[0].hour[3*i].time)
+                // p.innerText = `${time.toLocaleTimeString()}`
+                p.innerText = `Hauke`
+                const temperature = document.createElement("p")
+                temperature.innerText = `Temp: ${this.weather.forecast.forecastday[0].hour[3*i].temp_c}`
+                const uvIndex = document.createElement("p")
+                uvIndex.innerText = `UV-Index: ${Math.round(this.weather.forecast.forecastday[0].hour[3*i].uv)}`
+                const rainIntensity = document.createElement("p")
+                rainIntensity.innerText = `Regenchance: ${this.weather.forecast.forecastday[0].hour[3*i].chance_of_rain}`
+                wrapper_hourly.appendChild(p)
+                wrapper_hourly.appendChild(temperature)
+                wrapper_hourly.appendChild(uvIndex)
+                wrapper_hourly.appendChild(rainIntensity)
+                wrapper.appendChild(wrapper_hourly)
+            }
+            container.appendChild(wrapper)
             // wrapper_daylies = document.createElement("div");
             // wrapper_daylies.style.display = "flex";
             // for(let i = 0; i < 3; i++) {
