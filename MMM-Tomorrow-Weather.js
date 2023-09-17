@@ -46,8 +46,8 @@ Module.register("MMM-Tomorrow-Weather", {
                 const text = document.createElement("p")
                 text.innerText = i === 0 ? "Aktuell" : i === 1 ? "+3h" : "+6h"
                 const img = document.createElement("img")
-                img.src = `https:${this.weather.forecast.forecastday[0].hour[3*i].condition.icon}`
-                // img.src = `${/public/regentropfen.png}`
+                // img.src = `https:${this.weather.forecast.forecastday[0].hour[3*i].condition.icon}`
+                img.src = "/MMM-Tomorrow-Weather/regentropfen.png"
                 first.appendChild(text) 
                 first.appendChild(img)
                 const second = document.createElement("div")
@@ -65,7 +65,7 @@ Module.register("MMM-Tomorrow-Weather", {
                 const uv_index = document.createElement("div")
                 uv_index.classList.add("item")
                 const u_description = document.createElement("p")
-                u_description.innerText = `${Math.round(this.weather.forecast.forecastday[0].hour[3*i].uv)}`
+                u_description.innerText = `UV: ${Math.round(this.weather.forecast.forecastday[0].hour[3*i].uv)}`
                 uv_index.appendChild(u_description)
                 const air_humidity = document.createElement("div")
                 air_humidity.classList.add("item")
@@ -90,9 +90,9 @@ Module.register("MMM-Tomorrow-Weather", {
                 first.src = `https:${this.weather.forecast.forecastday[i].day.condition.icon}`
                 const second = document.createElement("div")
                 const temp = document.createElement("p")
-                temp.innerText = `${this.weather.forecast.forecastday[i].day.maxtemp_c} °C`
+                temp.innerText = `${this.weather.forecast.forecastday[i].day.mintemp_c} - ${this.weather.forecast.forecastday[i].day.maxtemp_c} °C`
                 const uv = document.createElement("p")
-                uv.innerText = `${Math.round(this.weather.forecast.forecastday[i].day.uv)}`
+                uv.innerText = `UV: ${Math.round(this.weather.forecast.forecastday[i].day.uv)}`
                 const rain = document.createElement("p")
                 rain.innerText = `${this.weather.forecast.forecastday[i].day.daily_chance_of_rain}`
                 second.appendChild(temp)
@@ -103,7 +103,7 @@ Module.register("MMM-Tomorrow-Weather", {
                 daily_container.appendChild(wrapper)
             }
             container.appendChild(daily_container)
-            
+
 
 
 
