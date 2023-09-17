@@ -49,7 +49,6 @@ Module.register("MMM-Tomorrow-Weather", {
                 wrapper_hourly.style.gap = "3px";
                 const p = document.createElement("p")
                 const time = new Date(this.weather.forecast.forecastday[0].hour[3*i].time)
-                console.log(this.weather.forecast.forecastday[0].hour[3*i])
                 // p.innerText = `${time.toLocaleTimeString()}`
                 p.innerText = `Hauke`
                 const temperature = document.createElement("p")
@@ -99,6 +98,7 @@ Module.register("MMM-Tomorrow-Weather", {
     },
     socketNotificationReceived: function(notification, payload) {
         if (notification === "WEATHER_RESULT") {
+            console.log("Data kommt an")
             this.processWeather(payload);
             this.updateDom();
         }
