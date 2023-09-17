@@ -84,9 +84,9 @@ Module.register("MMM-Tomorrow-Weather", {
                 wrapper_daily.style.padding = "3px";
                 wrapper_daily.style.gap = "3px";
                 const p = document.createElement("p")
-                p.innerText = "Hi"
-            //     const time = new Date(this.weather.timelines.daily[i].time)
-            //     p.innerText = `${time.toLocaleDateString()}`
+                // p.innerText = "Hi"
+                const time = new Date(this.weather.timelines.daily[i].time)
+                p.innerText = `${time.toLocaleDateString()}`
             //     const temperature = document.createElement("p")
             //     temperature.innerText = `Maxtemp: ${this.weather.forecast.forecastday[i+1].day.maxtemp_c}`
             //     const uvIndex = document.createElement("p")
