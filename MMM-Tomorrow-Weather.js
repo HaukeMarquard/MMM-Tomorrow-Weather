@@ -54,27 +54,27 @@ Module.register("MMM-Tomorrow-Weather", {
                 const temperature = document.createElement("div")
                 temperature.classList.add("item")
                 const t_description = document.createElement("p")
-                t_description.innerText = `${this.weather.forecast.forecastday[0].hour[3*i].temp_c}`
+                t_description.innerText = `${this.weather.forecast.forecastday[0].hour[3*i].temp_c} °C`
                 temperature.appendChild(t_description)
-                // const rain_precip = document.createElement("div")
-                // rain_precip.classList.add("item")
-                // const r_description = document.createElement("p")
-                // r_description.innerText = `${this.weather.forecast.forecastday[0].hour[3*i].chance_of_rain}`
-                // rain_precip.appendChild(r_description)
-                // const uv_index = document.createElement("div")
-                // uv_index.classList.add("item")
-                // const u_description = document.createElement("p")
-                // u_description.innerText = `${Math.round(this.weather.forecast.forecastday[0].hour[3*i].uv)}`
-                // uv_index.appendChild(u_description)
-                // const air_humidity = document.createElement("div")
-                // air_humidity.classList.add("item")
-                // const a_description = document.createElement("p")
-                // a_description.innerText = `${this.weather.forecast.forecastday[0].hour[3*i].humidity}`
-                // air_humidity.appendChild(a_description)
+                const rain_precip = document.createElement("div")
+                rain_precip.classList.add("item")
+                const r_description = document.createElement("p")
+                r_description.innerText = `${this.weather.forecast.forecastday[0].hour[3*i].chance_of_rain}`
+                rain_precip.appendChild(r_description)
+                const uv_index = document.createElement("div")
+                uv_index.classList.add("item")
+                const u_description = document.createElement("p")
+                u_description.innerText = `${Math.round(this.weather.forecast.forecastday[0].hour[3*i].uv)}`
+                uv_index.appendChild(u_description)
+                const air_humidity = document.createElement("div")
+                air_humidity.classList.add("item")
+                const a_description = document.createElement("p")
+                a_description.innerText = `${this.weather.forecast.forecastday[0].hour[3*i].humidity}`
+                air_humidity.appendChild(a_description)
                 second.appendChild(temperature)
-                // second.appendChild(rain_precip)
-                // second.appendChild(uv_index)
-                // second.appendChild(air_humidity)
+                second.appendChild(rain_precip)
+                second.appendChild(uv_index)
+                second.appendChild(air_humidity)
                 wrapper.appendChild(first)
                 wrapper.appendChild(second)
                 container.appendChild(wrapper)
