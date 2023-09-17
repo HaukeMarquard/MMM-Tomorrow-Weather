@@ -73,8 +73,8 @@ Module.register("MMM-Tomorrow-Weather", {
             container.appendChild(wrapper)
             wrapper_daylies = document.createElement("div");
             wrapper_daylies.style.display = "flex";
-            var wrapper_daily = document.createElement("div");
             for(let i = 0; i < 3; i++) {
+                var wrapper_daily = document.createElement("div");
                 wrapper_daily.style.display = "flex";
                 wrapper_daily.style.flexDirection = "column";
                 wrapper_daily.style.justifyContent = "center";
