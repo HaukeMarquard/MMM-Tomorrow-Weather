@@ -99,6 +99,8 @@ Module.register("MMM-Tomorrow-Weather", {
                 uv.innerText = `UV: ${Math.round(this.weather.forecast.forecastday[i].day.uv)}`
                 const rain_container = document.createElement("div")
                 rain_container.style.display = "flex"
+                rain_container.style.align_items = "center"
+                rain_container.style.justifyContent = "center"
                 const rain = document.createElement("p")
                 rain.innerText = `${this.weather.forecast.forecastday[i].day.daily_chance_of_rain}%`
                 const r_img = document.createElement("img")

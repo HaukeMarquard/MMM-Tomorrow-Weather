@@ -2,6 +2,7 @@
     display: grid;
     grid-template-columns: 1fr 2fr;
     border: 1px solid white;
+    padding: 5px;
 }
 
 .hourly_forecast .first {
@@ -13,7 +14,6 @@
 .hourly_forecast .params {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-gap: 5px;
 }
 
 .hourly_forecast .params .item {
