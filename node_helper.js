@@ -10,7 +10,8 @@ module.exports = NodeHelper.create({
     },
     getWeather: function(payload) {
         var that = this;
-        this.url = `https://api.tomorrow.io/v4/weather/forecast?location=${payload.lat},${payload.lon}&apikey=${payload.api_key}`
+        // this.url = `https://api.tomorrow.io/v4/weather/forecast?location=${payload.lat},${payload.lon}&apikey=${payload.api_key}`
+        this.url = `https://api.weatherapi.com/v1/forecast.json?key=0f72f66586594e1c997150801231709&q=Grossenwiehe&days=3&aqi=no&alerts=no`
         Log.info(this.url)
         axios.get(this.url)
             .then(response => {that.sendSocketNotification('WEATHER_RESULT', response.data)})

@@ -48,19 +48,16 @@ Module.register("MMM-Tomorrow-Weather", {
                 wrapper_hourly.style.padding = "3px";
                 wrapper_hourly.style.gap = "3px";
                 const p = document.createElement("p")
-                const time = new Date(this.weather.timelines.hourly[3*i].time)
+                const time = new Date(this.weather.forecast.forecastday[0].hour[3*i].time)
                 p.innerText = `${time.toLocaleTimeString()}`
                 const temperature = document.createElement("p")
-                temperature.innerText = `Temp: ${Math.round(this.weather.timelines.hourly[3*i].values.temperature * 10)/10}`
-                const temperatureApparent = document.createElement("p")
-                temperatureApparent.innerText = `Gefühlte Temp: ${Math.round(this.weather.timelines.hourly[3*i].values.temperatureApparent*10)/10}`
+                temperature.innerText = `Temp: ${this.weather.forecast.forecastday[0].hour[3*i].temp_c}`
                 const uvIndex = document.createElement("p")
-                uvIndex.innerText = `UV-Index: ${Math.round(this.weather.timelines.hourly[3*i].values.uvIndex)}`
+                uvIndex.innerText = `UV-Index: ${Math.round(this.weather.forecast.forecastday[0].hour[3*i].uv)}`
                 const rainIntensity = document.createElement("p")
-                rainIntensity.innerText = `Regenmenge(mm): ${this.weather.timelines.hourly[3*i].values.rainIntensity}`
+                rainIntensity.innerText = `Regenchance: ${this.weather.forecast.forecastday[0].hour[3*i].chance_of_rain}`
                 wrapper_hourly.appendChild(p)
                 wrapper_hourly.appendChild(temperature)
-                wrapper_hourly.appendChild(temperatureApparent)
                 wrapper_hourly.appendChild(uvIndex)
                 wrapper_hourly.appendChild(rainIntensity)
                 wrapper.appendChild(wrapper_hourly)
@@ -82,11 +79,11 @@ Module.register("MMM-Tomorrow-Weather", {
                 const time = new Date(this.weather.timelines.daily[i].time)
                 p.innerText = `${time.toLocaleDateString()}`
                 const temperature = document.createElement("p")
-                temperature.innerText = `Temp: ${Math.round(this.weather.timelines.daily[i].values.temperatureMin * 10)/10} - ${Math.round(this.weather.timelines.daily[i].values.temperatureMax*10)/10}`
+                temperature.innerText = `Maxtemp: ${this.weather.forecast.forecastday[i+1].day.maxtemp_c}`
                 const uvIndex = document.createElement("p")
-                uvIndex.innerText = `UV-Index: ${Math.round(this.weather.timelines.daily[i].values.uvIndexMax)}`
+                uvIndex.innerText = `UV-Index: ${this.weather.forecast.forecastday[i+1].day.uv}`
                 const rainIntensity = document.createElement("p")
-                rainIntensity.innerText = `Regenmenge(mm): ${this.weather.timelines.daily[i].values.rainIntensityMax}`
+                rainIntensity.innerText = `Regenmengechance: ${this.weather.forecast.forecastday[i+1].day.daily_chance_of_rain}`
                 wrapper_daily.appendChild(p)
                 wrapper_daily.appendChild(temperature)
                 wrapper_daily.appendChild(uvIndex)
