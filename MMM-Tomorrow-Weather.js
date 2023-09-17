@@ -36,7 +36,7 @@ Module.register("MMM-Tomorrow-Weather", {
             return wrapper;
         } else {
             var container = document.createElement("div");
-            container.innerHTML = "Haukes dingens"
+            container.innerHTML = `${this.weather.forecast.forecastday[0].date}`
             // var wrapper = document.createElement("div");
             // wrapper.style.display = "flex";
             // for(let i = 0; i < 4; i++) {
