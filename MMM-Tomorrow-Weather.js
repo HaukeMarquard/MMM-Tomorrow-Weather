@@ -55,7 +55,7 @@ Module.register("MMM-Tomorrow-Weather", {
                 temperature.classList.add("item")
                 const t_description = document.createElement("p")
                 t_description.innerText = `${this.weather.forecast.forecastday[0].hour[3*i].temp_c}`
-                temperate.appendChild(t_description)
+                temperature.appendChild(t_description)
                 // const rain_precip = document.createElement("div")
                 // rain_precip.classList.add("item")
                 // const r_description = document.createElement("p")
