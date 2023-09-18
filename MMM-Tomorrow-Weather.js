@@ -143,29 +143,6 @@ Module.register("MMM-Tomorrow-Weather", {
             return container;
         }
     },
-    get_weather_icon: function(text) {
-        // switch(text) {
-        //     case "Sunny":
-        //         return "/MMM-Tomorrow-Weather/sonne.png"
-        //     case "Clear":
-        //         return "/MMM-Tomorrow-Weather/nacht.png"
-        //     case "Sunny":
-        //         return "/MMM-Tomorrow-Weather/sonne.png"
-        //     case "Sunny":
-        //         return "/MMM-Tomorrow-Weather/sonne.png"
-        //     case "Sunny":
-        //         return "/MMM-Tomorrow-Weather/sonne.png"
-        //     case "Sunny":
-        //         return "/MMM-Tomorrow-Weather/sonne.png"
-        //     case "Sunny":
-        //         return "/MMM-Tomorrow-Weather/sonne.png"
-        //     case "Sunny":
-        //         return "/MMM-Tomorrow-Weather/sonne.png"
-        //    default:
-                return `https:${this.weather.forecast.forecastday[hour_prevs[i].day].hour[hour_prevs[i].hour].condition.icon}`
-    
-        // }
-    },
     socketNotificationReceived: function(notification, payload) {
         if (notification === "WEATHER_RESULT") {
             Log.log("Data kommt an")
