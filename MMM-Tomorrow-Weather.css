@@ -51,10 +51,12 @@ img.small {
     grid-column-end:3; 
 }
 
-daily_forecast .first {
+.daily_forecast .first {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-
+daily_forecst .second p {
+    margin: 2px 0;
+}

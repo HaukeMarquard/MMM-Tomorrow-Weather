@@ -61,8 +61,9 @@ Module.register("MMM-Tomorrow-Weather", {
                 const text = document.createElement("p")
                 text.innerText = i === 0 ? "Aktuell" : i === 1 ? "+3h" : "+6h"
                 const img = document.createElement("img")
-                img.src = `https:${this.weather.forecast.forecastday[hour_prevs[i].day].hour[hour_prevs[i].hour].condition.icon}`
+                // img.src = `https:${this.weather.forecast.forecastday[hour_prevs[i].day].hour[hour_prevs[i].hour].condition.icon}`
                 // img.src = "/MMM-Tomorrow-Weather/regentropfen.png"
+                img.src = `${get_weather_icon(this.weather.forecast.forecastday[hour_prevs[i].day].hour[hour_prevs[i].hour].condition.text)}`
                 first.appendChild(text) 
                 first.appendChild(img)
                 const second = document.createElement("div")
@@ -114,6 +115,7 @@ Module.register("MMM-Tomorrow-Weather", {
                 first.src = `https:${this.weather.forecast.forecastday[i].day.condition.icon}`
                 first_container.appendChild(first)
                 const second = document.createElement("div")
+                second.classList.add("second")
                 const temp = document.createElement("p")
                 temp.innerText = `${this.weather.forecast.forecastday[i].day.mintemp_c} - ${this.weather.forecast.forecastday[i].day.maxtemp_c} °C`
                 const uv = document.createElement("p")
@@ -137,78 +139,32 @@ Module.register("MMM-Tomorrow-Weather", {
                 wrapper.appendChild(second)
                 daily_container.appendChild(wrapper)
             }
-            container.appendChild(daily_container)
-
-
-
-
-            // var wrapper = document.createElement("div");
-            // wrapper.style.display = "flex";
-            // for(let i = 0; i < 4; i++) {
-            //     var wrapper_hourly = document.createElement("div");
-            //     wrapper_hourly.style.display = "flex";
-            //     wrapper_hourly.style.flexDirection = "column";
-            //     wrapper_hourly.style.justifyContent = "center";
-            //     wrapper_hourly.style.alignItems = "center";
-            //     wrapper_hourly.style.border = "1px solid white";
-            //     wrapper_hourly.style.borderRadius = "10px";
-            //     wrapper_hourly.style.padding = "3px";
-            //     wrapper_hourly.style.gap = "3px";
-            //     const img = document.createElement("img")
-            //     img.src = `https:${this.weather.forecast.forecastday[0].hour[3*i].condition.icon}`
-            //     img.style.width = "50px";
-            //     img.style.height = "50px";
-            //     const p = document.createElement("p")
-            //     const time = new Date(this.weather.forecast.forecastday[0].hour[3*i].time)
-            //     p.innerText = `${time.toLocaleTimeString()}`
-            //     // p.innerText = `Hauke`
-            //     const temperature = document.createElement("p")
-            //     temperature.innerText = `Temp: ${this.weather.forecast.forecastday[0].hour[3*i].temp_c}`
-            //     const uvIndex = document.createElement("p")
-            //     uvIndex.innerText = `UV-Index: ${Math.round(this.weather.forecast.forecastday[0].hour[3*i].uv)}`
-            //     const rainIntensity = document.createElement("p")
-            //     rainIntensity.innerText = `Regenchance: ${this.weather.forecast.forecastday[0].hour[3*i].chance_of_rain}`
-            //     wrapper_hourly.appendChild(img)
-            //     wrapper_hourly.appendChild(p)
-            //     wrapper_hourly.appendChild(temperature)
-            //     wrapper_hourly.appendChild(uvIndex)
-            //     wrapper_hourly.appendChild(rainIntensity)
-            //     wrapper.appendChild(wrapper_hourly)
-            // }
-            // container.appendChild(wrapper)
-            // wrapper_daylies = document.createElement("div");
-            // wrapper_daylies.style.display = "flex";
-            // for(let i = 0; i < 3; i++) {
-            //     var wrapper_daily = document.createElement("div");
-            //     wrapper_daily.style.display = "flex";
-            //     wrapper_daily.style.flexDirection = "column";
-            //     wrapper_daily.style.justifyContent = "center";
-            //     wrapper_daily.style.alignItems = "center";
-            //     wrapper_daily.style.border = "1px solid white";
-            //     wrapper_daily.style.borderRadius = "10px";
-            //     wrapper_daily.style.padding = "3px";
-            //     wrapper_daily.style.gap = "3px";
-            //     const p = document.createElement("p")
-            //     // p.innerText = `${this.weather.forecast.forecastday[i+1]}`
-            //     const time = new Date(this.weather.forecast.forecastday[i+1].date)
-            //     p.innerText = `${time.toLocaleDateString()}`
-            //     const temperature = document.createElement("p")
-            //     temperature.innerText = `Maxtemp: ${this.weather.forecast.forecastday[i+1].day.maxtemp_c}`
-            //     const uvIndex = document.createElement("p")
-            //     uvIndex.innerText = `UV-Index: ${this.weather.forecast.forecastday[i+1].day.uv}`
-            //     const rainIntensity = document.createElement("p")
-            //     rainIntensity.innerText = `Regenmengechance: ${this.weather.forecast.forecastday[i+1].day.daily_chance_of_rain}`
-            //     wrapper_daily.appendChild(p)
-            //     wrapper_daily.appendChild(temperature)
-            //     wrapper_daily.appendChild(uvIndex)
-            //     wrapper_daily.appendChild(rainIntensity)
-            //     wrapper_daylies.appendChild(wrapper_daily)
-            // }
-            // container.appendChild(wrapper_daylies)
-
-            
+            container.appendChild(daily_container)            
             return container;
         }
+    },
+    get_weather_icon: function(text) {
+        // switch(text) {
+        //     case "Sunny":
+        //         return "/MMM-Tomorrow-Weather/sonne.png"
+        //     case "Clear":
+        //         return "/MMM-Tomorrow-Weather/nacht.png"
+        //     case "Sunny":
+        //         return "/MMM-Tomorrow-Weather/sonne.png"
+        //     case "Sunny":
+        //         return "/MMM-Tomorrow-Weather/sonne.png"
+        //     case "Sunny":
+        //         return "/MMM-Tomorrow-Weather/sonne.png"
+        //     case "Sunny":
+        //         return "/MMM-Tomorrow-Weather/sonne.png"
+        //     case "Sunny":
+        //         return "/MMM-Tomorrow-Weather/sonne.png"
+        //     case "Sunny":
+        //         return "/MMM-Tomorrow-Weather/sonne.png"
+        //    default:
+                return `https:${this.weather.forecast.forecastday[hour_prevs[i].day].hour[hour_prevs[i].hour].condition.icon}`
+    
+        // }
     },
     socketNotificationReceived: function(notification, payload) {
         if (notification === "WEATHER_RESULT") {
